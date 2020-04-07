@@ -1,0 +1,10 @@
+{% extends 'blogList.html' %}
+
+{% block title %}
+    {{blogtype.typeName}}
+{% endblock title %}
+
+{% block blogListTitle %}
+    分类：{{blogtype.typeName}}
+    <a href="{% url 'blogList' %}">查看全部博客</a>
+{% endblock blogListTitle %}

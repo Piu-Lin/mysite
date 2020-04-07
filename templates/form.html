@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{{pageTitle}}{% endblock title %}
+{% block navHomeActive %}active{% endblock navHomeActive %}
+
+{% block content %}
+    <div class= 'containter'>
+        <div class='row'>
+            <div class="col-xs-4 col-xs-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{formTitle}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="post"> 
+                            {% csrf_token %}
+                            {{ form }}
+                        <div class="pull-left">
+                            {% block other_buttons %}{% endblock %}
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-default" onclick="window.location.href='{{returnBackUrl}}'">返回</button>
+                            <input type="submit" value="{{submitText}}" class="btn btn-primary">
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    我的网站|错误
+{% endblock title %}
+
+
+{% block navHomeActive %}
+    active
+{% endblock navHomeActive %}
+
+{% block content %}
+    {{ message }}
+    <a href="{{redirect}}">返回</a>
+    
+{% endblock content %}

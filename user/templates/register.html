@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock title %}
+{% block navHomeActive %}active{% endblock navHomeActive %}
+
+{% block content %}
+    <div class= 'containter'>
+        <div class='row'>
+            <div class="col-xs-4 col-xs-offset-4">
+                {% if  user.is_authenticated %}
+                    已登录
+                <script type="text/javascript">
+                    window.location.href='/'
+                </script>
+                {% else %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">注册</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="" method="post"> 
+                            {% csrf_token %}
+                            {{ regForm }}
+                            <input type="submit" value="注册" class="btn btn-primary pull-right">
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

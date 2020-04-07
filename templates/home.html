@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    我的网站
+{% endblock title %}
+
+{% block headerExtends %}
+    <link rel="stylesheet" href="/static/home.css">
+    <script src="http://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+{% endblock headerExtends %}
+
+{% block navHomeActive %}active{% endblock navHomeActive %}
+
+{% block content %}
+    <h3 class="homeContent">欢迎来到祖安</h3>
+
+    <h3>今天热门</h3>
+    <ul>
+        {%for thot in todayHot%}
+            <li><a href="{% url 'blogDetail' thot.content_object.pk %}">
+            {{ thot.content_object.title }}</a> ({{thot.readNum}}) </li>
+        {%empty%}
+            <li>今日无数据</li>
+        {% endfor %}
+    </ul>
+    <h3>昨天热门</h3>
+    <ul>
+        {%for yhot in yesterHot%}
+            <li><a href="{% url 'blogDetail' yhot.content_object.pk %}">{{ yhot.content_object.title }}</a> ({{yhot.readNum}}) </li>
+        {%empty%}
+            <li>今日无数据</li>
+        {% endfor %}
+    </ul>
+
+    
+{% endblock content %}

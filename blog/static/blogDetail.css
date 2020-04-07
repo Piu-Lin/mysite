@@ -1,0 +1,22 @@
+.blogInfoDescription{
+    list-style-type: none;
+    margin-bottom: 2em;
+}
+.blogInfoDescription li{
+    display: inline-block;
+    margin-right: 1em;
+}
+.blogMore{
+    margin-top: 1em;
+}
+
+.commentArea{
+    margin-top: 2em;
+}
+.commentAreaTitle{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.4em;
+}
+.django-ckeditor-widget{
+    width: 100%;
+}

@@ -1,0 +1,10 @@
+{% extends 'blogList.html' %}
+
+{% block title %}
+    {{blogWithDate}}
+{% endblock title %}
+
+{% block blogListTitle %}
+    日期归档：{{blogWithDate}}
+    <a href="{% url 'blogList' %}">查看全部博客</a>
+{% endblock blogListTitle %}
