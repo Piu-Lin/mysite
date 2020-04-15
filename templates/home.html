@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-    我的网站
+    Piusite
 {% endblock title %}
 
 {% block headerExtends %}
@@ -11,24 +11,43 @@
 {% block navHomeActive %}active{% endblock navHomeActive %}
 
 {% block content %}
-    <h3 class="homeContent">欢迎来到祖安</h3>
+    <h3 class="homeContent">请评委老师指正</h3>  
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">今日热门</div>
+                <div class="panel-body">
+                <ul>
+                    {%for thot in todayHot%}
+                     <li>
+                        <a href="{% url 'blogDetail' thot.content_object.pk %}">
+                        {{ thot.content_object.title }}</a>({{thot.readNum}})
+                    </li>
+                    {%empty%}
+                    <li class="list-group-item" >今日无数据</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <h3>今天热门</h3>
+    <div class="hidden-xs col-sm-4 pull-right">
+        <div class="panel panel-default">
+            <div class="panel-heading">昨日热门</div>
+                <div class="panel-body">
+                <ul>
+                    {%for yhot in yesterHot%}
+                        <li><a href="{% url 'blogDetail' yhot.content_object.pk %}">
+                        {{ yhot.content_object.title }}</a> ({{yhot.readNum}}) </li>
+                    {%empty%}
+                        <li>今日无数据</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3></h3>
     <ul>
-        {%for thot in todayHot%}
-            <li><a href="{% url 'blogDetail' thot.content_object.pk %}">
-            {{ thot.content_object.title }}</a> ({{thot.readNum}}) </li>
-        {%empty%}
-            <li>今日无数据</li>
-        {% endfor %}
-    </ul>
-    <h3>昨天热门</h3>
-    <ul>
-        {%for yhot in yesterHot%}
-            <li><a href="{% url 'blogDetail' yhot.content_object.pk %}">{{ yhot.content_object.title }}</a> ({{yhot.readNum}}) </li>
-        {%empty%}
-            <li>今日无数据</li>
-        {% endfor %}
+        
     </ul>
 
     
