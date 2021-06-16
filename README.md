@@ -1,4 +1,4 @@
 # mysite
-测试项目
- - heih
+Django博客项目
+已经停更
  
